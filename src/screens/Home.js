@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 
-const Home = () => {
+const Home = ({ stateCategoryClicked }) => {
   return (
     <View>
       <Header title="Ecommerce Tech" />
-      <Categories />
+      <Categories stateCategoryClicked={stateCategoryClicked} />
     </View>
   );
 };

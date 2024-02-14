@@ -3,13 +3,18 @@ import allcategorias from "../utils/data/categorias.json";
 import IndividualCategory from "./IndividualCategory";
 import colors from "../utils/globals/colors";
 
-const Categories = () => {
+const Categories = ({ stateCategoryClicked }) => {
   return (
     <FlatList
       style={styles.container}
       data={allcategorias}
       keyExtractor={(item) => item}
-      renderItem={({ item }) => <IndividualCategory item={item} />}
+      renderItem={({ item }) => (
+        <IndividualCategory
+          item={item}
+          stateCategoryClicked={stateCategoryClicked}
+        />
+      )}
     />
   );
 };

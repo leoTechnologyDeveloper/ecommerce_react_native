@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import colors from "../utils/globals/colors";
 import ShadowCard from "./wrappers/ShadowCard";
 
-const IndividualCategory = ({ item }) => {
+const IndividualCategory = ({ item, stateCategoryClicked }) => {
   return (
-    <ShadowCard style={[styles.container, styles.item]}>
-      <Text style={styles.item}>{item}</Text>
-    </ShadowCard>
+    <Pressable onPress={() => stateCategoryClicked(item)}>
+      <ShadowCard style={[styles.container, styles.item]}>
+        <Text style={styles.item}>{item}</Text>
+      </ShadowCard>
+    </Pressable>
   );
 };
 
