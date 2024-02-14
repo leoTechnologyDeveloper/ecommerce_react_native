@@ -4,12 +4,12 @@ import colors from "../utils/globals/colors";
 const ProductoCategorizado = ({ item }) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>{item.title}</Text>
       <Image
         source={{ uri: item.thumbnail }}
         style={styles.imagen}
         resizeMethod="cover"
       />
-      <Text style={styles.text}>{item.title}</Text>
     </View>
   );
 };
@@ -30,9 +30,11 @@ const styles = StyleSheet.create({
     height: 100,
     borderColor: colors.primary,
     borderWidth: 4,
+    borderRadius: 10,
   },
   text: {
     fontSize: 25,
     width: "65%",
+    fontWeight: "700",
   },
 });

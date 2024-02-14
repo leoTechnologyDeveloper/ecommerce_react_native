@@ -4,6 +4,7 @@ import colors from "../utils/globals/colors";
 import productos from "../utils/data/products.json";
 import { useState, useEffect } from "react";
 import ProductoCategorizado from "../components/ProductoCategorizado";
+import Searcher from "../components/Searcher";
 
 const ListCategory = ({ categoryClicked }) => {
   const [prodFiltrados, setProdFiltrados] = useState([]);
@@ -17,6 +18,7 @@ const ListCategory = ({ categoryClicked }) => {
   return (
     <View>
       <Header title={`Categoria ${categoryClicked}`} />
+      <Searcher />
       <FlatList
         style={styles.container}
         data={prodFiltrados}
