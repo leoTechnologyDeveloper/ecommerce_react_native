@@ -5,7 +5,7 @@ import Categories from "../components/Categories";
 const Home = ({ stateCategoryClicked }) => {
   return (
     <View>
-      <Header title="Ecommerce Tech" />
+      <Header title="Ecommerce Tech" arrow={false} />
       <Categories stateCategoryClicked={stateCategoryClicked} />
     </View>
   );

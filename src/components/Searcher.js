@@ -1,21 +1,35 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Keyboard,
+} from "react-native";
 import colors from "../utils/globals/colors";
 import { useState } from "react";
 
-const Searcher = () => {
+const Searcher = ({ handleWordForSearch }) => {
   const [stateInput, setStateInput] = useState("");
 
   const handleInput = (e) => setStateInput(e);
+
+  const handleSearching = () => {
+    Keyboard.dismiss();
+    console.log(stateInput);
+  };
 
   return (
     <View style={styles.container}>
       <TextInput
         placeholder="Buscar"
         style={styles.buscador}
-        onTextInput={handleInput}
+        onChangeText={handleInput}
         value={stateInput}
       />
-      <Text style={styles.lupa}> 🔍</Text>
+      <Pressable onPress={handleSearching} style={styles.lupa}>
+        <Text style={styles.lupaIcon}> 🔍</Text>
+      </Pressable>
     </View>
   );
 };
@@ -42,7 +56,10 @@ const styles = StyleSheet.create({
   lupa: {
     backgroundColor: "white",
     width: "10%",
-    fontSize: 20,
+
     alignSelf: "center",
+  },
+  lupaIcon: {
+    fontSize: 25,
   },
 });

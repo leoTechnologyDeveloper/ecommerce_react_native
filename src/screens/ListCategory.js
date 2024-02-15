@@ -8,6 +8,9 @@ import Searcher from "../components/Searcher";
 
 const ListCategory = ({ categoryClicked }) => {
   const [prodFiltrados, setProdFiltrados] = useState([]);
+  const [wordForSearch, setWordForSearch] = useState("");
+
+  const handleWordForSearch = (word) => setWordForSearch(word);
 
   useEffect(() => {
     setProdFiltrados(
@@ -17,8 +20,8 @@ const ListCategory = ({ categoryClicked }) => {
 
   return (
     <View>
-      <Header title={`Categoria ${categoryClicked}`} />
-      <Searcher />
+      <Header title={`Categoria ${categoryClicked}`} arrow={true} />
+      <Searcher handleWordForSearch={handleWordForSearch} />
       <FlatList
         style={styles.container}
         data={prodFiltrados}

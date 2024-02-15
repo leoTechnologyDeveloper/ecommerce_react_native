@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 25,
     width: "65%",
-    fontWeight: "700",
+    fontWeight: "600",
+    fontFamily: "WorkSans-VariableFont_wght",
   },
 });

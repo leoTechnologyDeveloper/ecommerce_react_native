@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     color: colors.primary,
     fontWeight: "600",
+    fontFamily: "WorkSans-VariableFont_wght",
   },
 });
