@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 
-const Home = ({ stateCategoryClicked }) => {
+const Home = ({ navigation }) => {
   return (
     <View>
       <Header title="Ecommerce Tech" arrow={false} />
-      <Categories stateCategoryClicked={stateCategoryClicked} />
+      <Categories navigation={navigation} />
     </View>
   );
 };

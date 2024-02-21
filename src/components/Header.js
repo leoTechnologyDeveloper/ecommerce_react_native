@@ -3,21 +3,21 @@ import colors from "../utils/globals/colors";
 
 const Header = ({ title = "Ecommerce", arrow }) => {
   const handleBack = () => {
-    // BackHandler.exitApp();
+    BackHandler.exitApp();
   };
 
-  console.log(arrow);
+  // console.log(arrow);
 
   return (
     <View style={styles.header}>
+      <Text style={styles.text}>{title}</Text>
       {arrow ? (
         <Pressable onPress={handleBack}>
-          <Text style={styles.backArrow}>◀</Text>
+          <Text style={styles.closeIcon}>✖</Text>
         </Pressable>
       ) : (
         ""
       )}
-      <Text style={styles.text}>{title}</Text>
     </View>
   );
 };
@@ -35,12 +35,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 20,
   },
-  backArrow: {
-    fontSize: 30,
-    color: colors.sea1,
-    alignSelf: "center",
-    width: "20",
+  closeIcon: {
+    fontSize: 25,
+    // color: colors.sea1,
+    backgroundColor: "yellow",
+    color: "darkblue",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 35,
+    height: 35,
     marginRight: 30,
+    borderRadius: 50,
   },
   text: {
     color: "white",

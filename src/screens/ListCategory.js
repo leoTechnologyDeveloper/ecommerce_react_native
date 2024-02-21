@@ -20,7 +20,7 @@ const ListCategory = ({ categoryClicked }) => {
 
   return (
     <View>
-      <Header title={`Categoria ${categoryClicked}`} arrow={true} />
+      <Header title={`${categoryClicked}`} arrow={true} />
       <Searcher handleWordForSearch={handleWordForSearch} />
       <FlatList
         style={styles.container}

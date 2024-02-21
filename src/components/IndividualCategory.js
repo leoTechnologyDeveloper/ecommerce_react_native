@@ -2,9 +2,9 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import colors from "../utils/globals/colors";
 import ShadowCard from "./wrappers/ShadowCard";
 
-const IndividualCategory = ({ item, stateCategoryClicked }) => {
+const IndividualCategory = ({ item, navigation }) => {
   return (
-    <Pressable onPress={() => stateCategoryClicked(item)}>
+    <Pressable onPress={() => navigation.navigate("ListCategory")}>
       <ShadowCard style={[styles.container, styles.item]}>
         <Text style={styles.item}>{item}</Text>
       </ShadowCard>

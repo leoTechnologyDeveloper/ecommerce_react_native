@@ -1,16 +1,16 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import colors from "../utils/globals/colors";
 
 const ProductoCategorizado = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={() => console.log(item.title)}>
       <Text style={styles.text}>{item.title}</Text>
       <Image
         source={{ uri: item.thumbnail }}
         style={styles.imagen}
         resizeMethod="cover"
       />
-    </View>
+    </Pressable>
   );
 };
 

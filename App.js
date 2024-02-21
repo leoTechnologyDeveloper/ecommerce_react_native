@@ -4,10 +4,12 @@ import ListCategory from "./src/screens/ListCategory";
 import ProductDetail from "./src/screens/ProductDetail";
 import { useState, useEffect } from "react";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [categoryClicked, setCategoryClicked] = useState("");
-  const handleCategoryClicked = (category) => setCategoryClicked(category);
   const [fontsLoaded] = useFonts({
     "SmoochSans-VariableFont_wght": require("./assets/fonts/SmoochSans-VariableFont_wght.ttf"),
     "KaushanScript-Regular": require("./assets/fonts/KaushanScript-Regular.ttf"),
@@ -18,13 +20,13 @@ const App = () => {
   if (!fontsLoaded) return null;
 
   return (
-    <View>
-      {categoryClicked ? (
-        <ListCategory categoryClicked={categoryClicked} />
-      ) : (
-        <Home stateCategoryClicked={handleCategoryClicked} />
-      )}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ListCategory" component={ListCategory} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
