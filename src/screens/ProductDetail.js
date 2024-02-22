@@ -4,14 +4,16 @@ import Header from "../components/Header";
 import productos from "../utils/data/products.json";
 import colors from "../utils/globals/colors";
 
-const ProductDetail = ({ id }) => {
+const ProductDetail = ({ route }) => {
+  const { prodDetalladoId } = route.params;
   const [productoDetailed, setProductoDetailed] = useState("");
-  console.log("before : ", console.log(productoDetailed));
 
   useEffect(() => {
-    setProductoDetailed(productos.find((item) => item.id === id));
-    console.log("after : ", console.log(productoDetailed));
-  }, [id]);
+    if (prodDetalladoId)
+      setProductoDetailed(
+        productos.find((item) => item.id === prodDetalladoId)
+      );
+  }, [prodDetalladoId]);
 
   return (
     <View>

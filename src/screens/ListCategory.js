@@ -6,16 +6,19 @@ import { useState, useEffect } from "react";
 import ProductoCategorizado from "../components/ProductoCategorizado";
 import Searcher from "../components/Searcher";
 
-const ListCategory = ({ categoryClicked }) => {
+const ListCategory = ({ route, navigation }) => {
+  const { categoryClicked } = route.params;
   const [prodFiltrados, setProdFiltrados] = useState([]);
   const [wordForSearch, setWordForSearch] = useState("");
-
+  console.log("before filtrados : ", prodFiltrados);
   const handleWordForSearch = (word) => setWordForSearch(word);
 
   useEffect(() => {
-    setProdFiltrados(
-      productos.filter((item) => item.category === categoryClicked)
-    );
+    if (categoryClicked)
+      setProdFiltrados(
+        productos.filter((item) => item.category === categoryClicked)
+      );
+    console.log("after filtrados : ", prodFiltrados);
   }, [categoryClicked]);
 
   return (
@@ -28,7 +31,7 @@ const ListCategory = ({ categoryClicked }) => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           //
-          <ProductoCategorizado item={item} />
+          <ProductoCategorizado item={item} navigation={navigation} />
         )}
       />
     </View>
