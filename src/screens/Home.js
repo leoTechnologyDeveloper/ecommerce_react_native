@@ -5,7 +5,7 @@ import Categories from "../components/Categories";
 const Home = ({ navigation }) => {
   return (
     <View>
-      <Header title="Ecommerce Tech" arrow={false} />
+      {/* <Header title="Ecommerce Tech" arrow={false} /> */}
       <Categories navigation={navigation} />
     </View>
   );

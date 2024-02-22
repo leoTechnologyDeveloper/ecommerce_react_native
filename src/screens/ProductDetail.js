@@ -17,13 +17,13 @@ const ProductDetail = ({ route }) => {
 
   return (
     <View>
-      <Header title="ProductDetail" arrow={true} />
+      {/* <Header title="ProductDetail" arrow={true} /> */}
       <View style={styles.container}>
         <Text style={styles.textTitle}>{productoDetailed.title}</Text>
         <Image
           source={{ uri: productoDetailed.thumbnail }}
           style={styles.imagen}
-          resizeMethod="cover"
+          resizeMethod="auto"
         />
         <Text style={styles.textPrice}>Precio : {productoDetailed.price}</Text>
         <Text style={styles.text}>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     margin: 4,
     backgroundColor: colors.clear,
     height: "85%",
-    borderWidth: 30,
+    gap: 20,
   },
   imagen: {
     width: "90%",
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.sea1,
     padding: 5,
     borderRadius: 15,
-    width: "100%",
+    width: "90%",
     textAlign: "center",
   },
 });

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "./src/components/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +22,26 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={({ route }) => {
+          return {
+            header: () => {
+              return (
+                <Header
+                  title={
+                    route.name === "Home"
+                      ? "On-line Categories"
+                      : route.name === "ListCategory"
+                      ? route.params.categoryClicked
+                      : "Detalle del Producto"
+                  }
+                />
+              );
+            },
+          };
+        }}
+      >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ListCategory" component={ListCategory} />
         <Stack.Screen name="ProductDetail" component={ProductDetail} />

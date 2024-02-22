@@ -10,7 +10,7 @@ const ListCategory = ({ route, navigation }) => {
   const { categoryClicked } = route.params;
   const [prodFiltrados, setProdFiltrados] = useState([]);
   const [wordForSearch, setWordForSearch] = useState("");
-  console.log("before filtrados : ", prodFiltrados);
+  // console.log("before filtrados : ", prodFiltrados);
   const handleWordForSearch = (word) => setWordForSearch(word);
 
   useEffect(() => {
@@ -18,12 +18,12 @@ const ListCategory = ({ route, navigation }) => {
       setProdFiltrados(
         productos.filter((item) => item.category === categoryClicked)
       );
-    console.log("after filtrados : ", prodFiltrados);
+    // console.log("after filtrados : ", prodFiltrados);
   }, [categoryClicked]);
 
   return (
     <View>
-      <Header title={`${categoryClicked}`} arrow={true} />
+      {/* <Header title={`${categoryClicked}`} arrow={true} /> */}
       <Searcher handleWordForSearch={handleWordForSearch} />
       <FlatList
         style={styles.container}

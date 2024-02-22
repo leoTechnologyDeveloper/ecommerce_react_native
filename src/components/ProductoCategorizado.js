@@ -17,7 +17,7 @@ const ProductoCategorizado = ({ item, navigation }) => {
       <Image
         source={{ uri: item.thumbnail }}
         style={styles.imagen}
-        resizeMethod="cover"
+        resizeMethod="resize"
       />
     </Pressable>
   );
