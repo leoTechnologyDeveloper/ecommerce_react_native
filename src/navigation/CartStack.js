@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Cart from "../screens/Cart";
 import Header from "../components/Header";
@@ -17,7 +17,7 @@ const CartStack = () => {
         };
       }}
     >
-      <Stack.Screen name="cart" component={Cart} />
+      <Stack.Screen name="C art" component={Cart} />
     </Stack.Navigator>
   );
 };

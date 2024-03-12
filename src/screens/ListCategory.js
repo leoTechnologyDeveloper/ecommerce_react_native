@@ -8,6 +8,7 @@ import Searcher from "../components/Searcher";
 
 const ListCategory = ({ route, navigation }) => {
   const { categoryClicked } = route.params;
+  console.log(categoryClicked);
   const [prodFiltrados, setProdFiltrados] = useState([]);
   const [wordForSearch, setWordForSearch] = useState("");
   // console.log("before filtrados : ", prodFiltrados);

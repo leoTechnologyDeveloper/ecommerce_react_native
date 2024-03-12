@@ -1,15 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
-import Home from "./src/screens/Home";
-import ListCategory from "./src/screens/ListCategory";
-import ProductDetail from "./src/screens/ProductDetail";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 import { useFonts } from "expo-font";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Header from "./src/components/Header";
+import MainNavigator from "./src/navigation/MainNavigator";
 import CartStack from "./src/navigation/CartStack";
-
-const Stack = createNativeStackNavigator();
+import colors from "./src/utils/globals/colors";
+import MyBottomTab from "./src/navigation/MyBottomTab";
+import OrderStack from "./src/navigation/OrderStack";
 
 const App = () => {
   const [fontsLoaded] = useFonts({
@@ -22,33 +19,12 @@ const App = () => {
   if (!fontsLoaded) return null;
 
   return (
-    <NavigationContainer>
-      {/* <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={({ route }) => {
-          return {
-            header: () => {
-              return (
-                <Header
-                  title={
-                    route.name === "Home"
-                      ? "On-line Categories"
-                      : route.name === "ListCategory"
-                      ? route.params.categoryClicked
-                      : "Detalle del Producto"
-                  }
-                />
-              );
-            },
-          };
-        }}
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="ListCategory" component={ListCategory} />
-        <Stack.Screen name="ProductDetail" component={ProductDetail} />
-      </Stack.Navigator> */}
-      <CartStack />
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <StatusBar backgroundColor={colors.sea1} />
+        <MainNavigator />
+      </NavigationContainer>
+    </>
   );
 };
 
@@ -58,5 +34,8 @@ const styles = StyleSheet.create({
   clickeada: {
     fontSize: 50,
     color: "purple",
+  },
+  statusbar: {
+    backgroundColor: colors.fruit1,
   },
 });

@@ -30,10 +30,8 @@ const styles = StyleSheet.create({
     height: "auto",
     justifyContent: "center",
     alignContent: "center",
-    paddingTop: 50,
-    paddingBottom: 20,
+    padding: 20,
     flexDirection: "row",
-    paddingHorizontal: 20,
   },
   closeIcon: {
     fontSize: 25,

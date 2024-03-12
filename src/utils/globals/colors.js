@@ -4,9 +4,14 @@ const colors = {
   third: "blue",
   sea1: "skyblue",
   sea2: "LightCyan",
-  fruit1: "gainsboro",
+  lime: "lime",
   clear: "whitesmoke",
   dark: "black",
+  darkBlue: "midnightblue",
+  soft: "grey",
+  light: "white",
+  light2: "whitesmoke",
+  focused: "yellow",
 };
 
 export default colors;
