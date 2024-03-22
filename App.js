@@ -20,8 +20,9 @@ const App = () => {
 
   return (
     <>
+      <StatusBar backgroundColor={colors.sea1} />
+
       <NavigationContainer>
-        <StatusBar backgroundColor={colors.sea1} />
         <MainNavigator />
       </NavigationContainer>
     </>
