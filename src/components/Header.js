@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 30,
-    width: "80%",
+    width: "90%",
     fontFamily: "NotoSerifDisplay-VariableFont_wdth,wght",
   },
 });

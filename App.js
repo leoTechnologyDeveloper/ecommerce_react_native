@@ -7,6 +7,8 @@ import CartStack from "./src/navigation/CartStack";
 import colors from "./src/utils/globals/colors";
 import MyBottomTab from "./src/navigation/MyBottomTab";
 import OrderStack from "./src/navigation/OrderStack";
+import { store } from "./src/app/store";
+import { Provider } from "react-redux";
 
 const App = () => {
   const [fontsLoaded] = useFonts({
@@ -22,9 +24,11 @@ const App = () => {
     <>
       <StatusBar backgroundColor={colors.sea1} />
 
-      <NavigationContainer>
-        <MainNavigator />
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <MainNavigator />
+        </NavigationContainer>
+      </Provider>
     </>
   );
 };
