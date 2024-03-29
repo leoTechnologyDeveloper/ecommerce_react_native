@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import Header from "../components/Header";
 import colors from "../utils/globals/colors";
-import productos from "../utils/data/products.json";
+// import productos from "../utils/data/products.json";
+import productos from "../utils/data/products2.json";
 import { useState, useEffect } from "react";
 import ProductoCategorizado from "../components/ProductoCategorizado";
 import Searcher from "../components/Searcher";
@@ -25,7 +26,7 @@ const ListCategory = ({ route, navigation }) => {
   return (
     <View>
       {/* <Header title={`${categoryClicked}`} arrow={true} /> */}
-      <Searcher handleWordForSearch={handleWordForSearch} />
+      {/* <Searcher handleWordForSearch={handleWordForSearch} /> */}
       <FlatList
         style={styles.container}
         data={prodFiltrados}

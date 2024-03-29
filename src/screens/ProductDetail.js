@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Header from "../components/Header";
-import productos from "../utils/data/products.json";
+// import productos from "../utils/data/products.json";
+import productos from "../utils/data/products2.json";
 import colors from "../utils/globals/colors";
 import { useDispatch } from "react-redux";
 import { addcartItem } from "../features/cart/cartSlice";

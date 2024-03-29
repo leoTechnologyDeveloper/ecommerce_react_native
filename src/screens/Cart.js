@@ -19,7 +19,7 @@ const Cart = () => {
 
   return (
     <View style={styles.containerAllcart}>
-      <Text>Cart</Text>
+      <Text style={styles.carttTitle}>Tu Carrito </Text>
 
       <FlatList
         style={styles.container}
@@ -39,7 +39,7 @@ const Cart = () => {
                 <View style={styles.cantiPrecio}>
                   <Text style={styles.productPrecio}>$ {item.price}</Text>
                   <Text style={styles.productPrecio}>
-                    Cantidad: {item.cantidad}
+                    Cant: {item.cantidad}
                   </Text>
                 </View>
               </View>
@@ -51,7 +51,7 @@ const Cart = () => {
         )}
       />
       <View style={styles.containerConfirmarCompra}>
-        <Text style={styles.textConTotalprice}>Total : {cart.total} USD</Text>
+        <Text style={styles.textConTotalprice}>Total : {cart.total} COP</Text>
         <Pressable>
           <Text style={styles.textConfirmarCompra}>Comprar</Text>
         </Pressable>
@@ -67,8 +67,15 @@ const styles = StyleSheet.create({
     position: "relative",
     height: "100%",
   },
+  carttTitle: {
+    padding: 10,
+    color: colors.darkBlue,
+    fontWeight: "600",
+    fontSize: 25,
+    alignSelf: "flex-end",
+  },
   container: {
-    backgroundColor: colors.sea2,
+    backgroundColor: "sandybrown",
     padding: 10,
     gap: 20,
     width: "100%",
@@ -78,9 +85,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginBottom: 15,
-    backgroundColor: "skyblue",
+    backgroundColor: colors.clear,
     borderWidth: 1,
     borderRadius: 5,
+    padding: 4,
   },
   productTitle: {
     fontWeight: "800",
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
     height: 70,
     borderColor: colors.primary,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 50,
   },
   deleteArticle: {
     padding: 8,

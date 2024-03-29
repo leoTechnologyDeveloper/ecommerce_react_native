@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <>
-      <StatusBar backgroundColor={colors.sea1} />
+      <StatusBar backgroundColor={colors.darkBlue} />
 
       <Provider store={store}>
         <NavigationContainer>
