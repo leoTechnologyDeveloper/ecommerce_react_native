@@ -28,15 +28,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   item: {
-    backgroundColor: "brown",
+    backgroundColor: "white",
     width: "80%",
     textAlign: "center",
     fontSize: 30,
     margin: 20,
     padding: 5,
     borderRadius: 15,
-    color: colors.clear,
-    fontWeight: "600",
+    color: "crimson",
+    fontWeight: "800",
     fontFamily: "WorkSans-VariableFont_wght",
   },
 });

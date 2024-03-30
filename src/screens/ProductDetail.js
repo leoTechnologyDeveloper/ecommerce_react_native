@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Header from "../components/Header";
 // import productos from "../utils/data/products.json";
-import productos from "../utils/data/products2.json";
+// import productos from "../utils/data/products2.json";
+import { useGetProductQuery } from "../app/services/shop";
 import colors from "../utils/globals/colors";
 import { useDispatch } from "react-redux";
 import { addcartItem } from "../features/cart/cartSlice";
@@ -11,35 +12,39 @@ const ProductDetail = ({ route }) => {
   const dispatch = useDispatch();
   const { prodDetalladoId } = route.params;
   const [productoDetailed, setProductoDetailed] = useState("");
+  const { data: product, isLoading } = useGetProductQuery(prodDetalladoId - 1);
+  // setProductoDetailed(product);
 
-  useEffect(() => {
-    if (prodDetalladoId)
-      setProductoDetailed(
-        productos.find((item) => item.id === prodDetalladoId)
-      );
-  }, [prodDetalladoId]);
+  // useEffect(() => {
+  //   if (prodDetalladoId)
+  //     // setProductoDetailed(
+  //     //   productos.find((item) => item.id === prodDetalladoId)
+  //     // );
+  //     setProductoDetailed(product);
+  // }, [prodDetalladoId]);
+
+  // if (isLoading) return <Text style={styles.textPrice}>Waitttt !!!!!</Text>;
+  if (isLoading) return null;
+
+  console.log("el product traido", product);
 
   return (
     <View>
       {/* <Header title="ProductDetail" arrow={true} /> */}
       <View style={styles.container}>
-        <Text style={styles.textTitle}>{productoDetailed.title}</Text>
+        <Text style={styles.textTitle}>{product.title}</Text>
         <Image
-          source={{ uri: productoDetailed.thumbnail }}
+          source={{ uri: product.thumbnail }}
           style={styles.imagen}
           resizeMethod="auto"
         />
         <View style={styles.containerPrice}>
-          <Text style={styles.textPrice}>
-            Precio : {productoDetailed.price}
-          </Text>
-          <Pressable onPress={() => dispatch(addcartItem(productoDetailed))}>
+          <Text style={styles.textPrice}>Precio : {product.price}</Text>
+          <Pressable onPress={() => dispatch(addcartItem(product))}>
             <Text style={styles.carritoButton}> ➕ Agregar</Text>
           </Pressable>
         </View>
-        <Text style={styles.text}>
-          Description : {productoDetailed.description}
-        </Text>
+        <Text style={styles.text}>Description : {product.description}</Text>
       </View>
     </View>
   );

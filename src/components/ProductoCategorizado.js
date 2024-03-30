@@ -32,13 +32,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     margin: 10,
-    backgroundColor: colors.clear,
+    backgroundColor: "whitesmoke",
+    borderWidth: 2,
+    borderBlockColor: "crimson",
   },
   imagen: {
     width: "25%",
     height: 100,
     borderColor: colors.primary,
-    borderWidth: 4,
+    borderWidth: 2,
     borderRadius: 10,
   },
   text: {
