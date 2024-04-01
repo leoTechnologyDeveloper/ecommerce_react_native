@@ -3,13 +3,16 @@ import { StyleSheet, StatusBar } from "react-native";
 import ShopStack from "./ShopStack";
 import MyBottomTab from "./MyBottomTab";
 import OrderStack from "./OrderStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const MainNavigator = () => {
   return (
     <>
-      {/* <ShopStack /> */}
-      <MyBottomTab />
-      {/* <OrderStack /> */}
+      <NavigationContainer>
+        {/* <ShopStack /> */}
+        <MyBottomTab />
+        {/* <OrderStack /> */}
+      </NavigationContainer>
     </>
   );
 };

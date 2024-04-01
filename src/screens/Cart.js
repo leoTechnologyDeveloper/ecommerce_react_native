@@ -19,7 +19,7 @@ const Cart = () => {
 
   return (
     <View style={styles.containerAllcart}>
-      <Text style={styles.carttTitle}>Tu Carrito </Text>
+      <Text style={styles.carttTitle}>Tu Pedido </Text>
 
       <FlatList
         style={styles.container}
@@ -66,10 +66,12 @@ const styles = StyleSheet.create({
   containerAllcart: {
     position: "relative",
     height: "100%",
+    backgroundColor: "brown",
   },
   carttTitle: {
-    padding: 10,
-    color: colors.darkBlue,
+    padding: 20,
+    color: colors.light,
+
     fontWeight: "600",
     fontSize: 25,
     alignSelf: "flex-end",
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   containerConfirmarCompra: {
-    backgroundColor: colors.dark,
+    backgroundColor: "firebrick",
     position: "absolute",
     bottom: 3,
     padding: 20,
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
   textConfirmarCompra: {
     color: "black",
     fontWeight: "600",
-    backgroundColor: "orange",
+    backgroundColor: "gold",
     paddingVertical: 5,
     paddingHorizontal: 15,
     borderRadius: 20,
