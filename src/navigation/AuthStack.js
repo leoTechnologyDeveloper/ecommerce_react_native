@@ -1,5 +1,8 @@
 import { View, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "../screens/Login";
+import Register from "../screens/Register";
+import Header from "../components/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -7,14 +10,12 @@ const AuthStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="Login"
-      screenOptions={({ navigation }) => {
+      screenOptions={({ route, navigation }) => {
         return {
           header: () => {
             return (
               <Header
-                title={
-                  TabRouter.name === "Login" ? "Inicio de Sesión" : "Registro"
-                }
+                title={route.name === "Login" ? "Inicio de Sesión" : "Registro"}
                 navigation={navigation}
               />
             );
@@ -22,7 +23,7 @@ const AuthStack = () => {
         };
       }}
     >
-      <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );

@@ -1,16 +1,18 @@
-import { StyleSheet, StatusBar } from "react-native";
-
-import ShopStack from "./ShopStack";
+import { useState } from "react";
 import MyBottomTab from "./MyBottomTab";
-import OrderStack from "./OrderStack";
 import { NavigationContainer } from "@react-navigation/native";
+import AuthStack from "./AuthStack";
+import Cart from "../screens/Cart";
 
 const MainNavigator = () => {
+  const [idToken, setIsToken] = useState("");
+
   return (
     <>
       <NavigationContainer>
         {/* <ShopStack /> */}
-        <MyBottomTab />
+        {/* {idToken ? <MyBottomTab /> : <Cart />} */}
+        {idToken ? <MyBottomTab /> : <AuthStack />}
         {/* <OrderStack /> */}
       </NavigationContainer>
     </>
@@ -18,5 +20,3 @@ const MainNavigator = () => {
 };
 
 export default MainNavigator;
-
-const styles = StyleSheet.create({});
