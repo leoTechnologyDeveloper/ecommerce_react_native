@@ -45,7 +45,10 @@ const Login = ({ navigation }) => {
   //   }
   // };
 
-  const onSubmit = () => console.log("Submiteando");
+  const onSubmit = () => {
+    console.log("Mail : ", email);
+    console.log("Password : ", password);
+  };
 
   return (
     <View style={styles.main}>
@@ -54,15 +57,15 @@ const Login = ({ navigation }) => {
           label="Email"
           value={email}
           onChangeText={(t) => setEmail(t)}
-          // isSecure={false}
-          // error={errorEmail}
+          isSecure={false}
+          error={""}
         />
         <InputForm
           label="Password"
           value={password}
           onChangeText={(t) => setPassword(t)}
-          // isSecure={true}
-          // error={errorPassword}
+          isSecure={true}
+          error={"ei"}
         />
         <SubmitButton onPress={onSubmit} title="Iniciar Sesion" />
         <Text style={styles.sub}>No tenes una cuenta?</Text>

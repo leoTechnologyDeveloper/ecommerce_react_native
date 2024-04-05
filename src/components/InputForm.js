@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 // import fonts from "../utils/globals/fonts";
 
 // const InputForm = ({ label, value, onChangeText, isSecure, error }) => {
-const InputForm = ({ label, value, onChangeText }) => {
+const InputForm = ({ label, value, onChangeText, isSecure, error }) => {
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.titleInput}>{label}</Text>
@@ -10,12 +10,13 @@ const InputForm = ({ label, value, onChangeText }) => {
         value={value}
         onChangeText={onChangeText}
         style={styles.input}
+        secureTextEntry={isSecure}
       />
-      {/* {error ? (
+      {error ? (
         <View>
           <Text style={styles.error}>{error}</Text>
         </View>
-      ) : null} */}
+      ) : null}
     </View>
   );
 };
@@ -45,10 +46,15 @@ const styles = StyleSheet.create({
     color: "brown",
   },
   error: {
-    fontSize: 16,
-    color: "red",
-
+    fontSize: 24,
+    color: "lightsalmon",
+    backgroundColor: "black",
     fontStyle: "italic",
     marginLeft: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    width: "60%",
+    borderRadius: 10,
+    fontWeight: "700",
   },
 });
