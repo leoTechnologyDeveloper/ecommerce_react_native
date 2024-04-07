@@ -12,6 +12,7 @@ import { deleteItem } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 import { UseSelector, useSelector } from "react-redux";
+import Header from "../components/Header";
 
 const Cart = () => {
   const dispatch = useDispatch();

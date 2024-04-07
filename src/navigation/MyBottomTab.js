@@ -7,7 +7,10 @@ import Home from "../screens/Home";
 import Cart from "../screens/Cart";
 import Order from "../screens/Order";
 import ShopStack from "./ShopStack";
+import ProfileStack from "./ProfileStack";
 import MyIcon from "../components/MyIcon";
+import Profile from "../screens/Profile";
+import ImageSelector from "../screens/ImageSelector";
 
 const MyTabStack = createBottomTabNavigator();
 
@@ -31,7 +34,7 @@ export default function MyBottomTab() {
         }}
       />
       <MyTabStack.Screen
-        name="Cart"
+        name="CartStack"
         component={Cart}
         options={{
           tabBarIcon: ({ focused }) => {
@@ -40,11 +43,29 @@ export default function MyBottomTab() {
         }}
       />
       <MyTabStack.Screen
-        name="Order"
+        name="OrderStack"
         component={Order}
         options={{
           tabBarIcon: ({ focused }) => {
             return <MyIcon title="Order" focused={focused} />;
+          },
+        }}
+      />
+      {/* <MyTabStack.Screen
+        name="ImageSelector"
+        component={ImageSelector}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return <MyIcon title="ImageSelector" focused={focused} />;
+          },
+        }}
+      /> */}
+      <MyTabStack.Screen
+        name="ProfileStack"
+        component={ProfileStack}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return <MyIcon title="Profile" focused={focused} />;
           },
         }}
       />

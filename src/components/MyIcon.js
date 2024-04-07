@@ -19,9 +19,16 @@ const MyIcon = ({ title, focused }) => {
             {title}
           </Text>
         </>
-      ) : (
+      ) : title == "Order" ? (
         <>
           <Text style={styles.IconStyles}>📄</Text>
+          <Text style={focused ? styles.IconText : styles.IconText2}>
+            {title}
+          </Text>
+        </>
+      ) : (
+        <>
+          <Text style={styles.IconStyles}>🖐</Text>
           <Text style={focused ? styles.IconText : styles.IconText2}>
             {title}
           </Text>
