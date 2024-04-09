@@ -2,52 +2,47 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 import InputForm from "../components/InputForm";
 import SubmitButton from "../components/SubmitButton";
 import { useState } from "react";
-import colors from "../utils/globals/colors";
+// import colors from "../utils/globals/colors";
 // import fonts from "../utils/globals/fonts";
-// import { useLoginMutation } from "../app/services/auth";
-// import { useDispatch } from "react-redux";
-// import { setUser } from "../features/auth/authSlice";
-// import { loginSchema } from "../utils/validations/authSchema";
+import { useLoginMutation } from "../app/services/auth";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/auth/authSlice";
+import { loginSchema } from "../utils/validations/authSchema";
 
 const Login = ({ navigation }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errorEmail, setErrorEmail] = useState("");
-  // const [errorPassword, setErrorPassword] = useState("");
-  // const [triggerLogin] = useLoginMutation();
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+  const [triggerLogin] = useLoginMutation();
 
-  // const onSubmit = async () => {
-  //   try {
-  //     loginSchema.validateSync({ email, password });
-  //     const { data } = await triggerLogin({ email, password });
-  //     dispatch(
-  //       setUser({
-  //         email: data.email,
-  //         idToken: data.idToken,
-  //         localId: data.localId,
-  //       })
-  //     );
-  //   } catch (error) {
-  //     setErrorEmail("");
-  //     setErrorPassword("");
+  const onSubmit = async () => {
+    try {
+      loginSchema.validateSync({ email, password });
+      const { data } = await triggerLogin({ email, password });
+      dispatch(
+        setUser({
+          email: data.email,
+          idToken: data.idToken,
+          localId: data.localId,
+        })
+      );
+    } catch (error) {
+      setErrorEmail("");
+      setErrorPassword("");
 
-  //     switch (error.path) {
-  //       case "email":
-  //         setErrorEmail(error.message);
-  //         break;
-  //       case "password":
-  //         setErrorPassword(error.message);
-  //         break;
-  //       default:
-  //         break;
-  //     }
-  //   }
-  // };
-
-  const onSubmit = () => {
-    console.log("Mail : ", email);
-    console.log("Password : ", password);
+      switch (error.path) {
+        case "email":
+          setErrorEmail(error.message);
+          break;
+        case "password":
+          setErrorPassword(error.message);
+          break;
+        default:
+          break;
+      }
+    }
   };
 
   return (
@@ -58,14 +53,14 @@ const Login = ({ navigation }) => {
           value={email}
           onChangeText={(t) => setEmail(t)}
           isSecure={false}
-          error={""}
+          error={errorEmail}
         />
         <InputForm
           label="Password"
           value={password}
           onChangeText={(t) => setPassword(t)}
           isSecure={true}
-          error={"ei"}
+          error={errorPassword}
         />
         <SubmitButton onPress={onSubmit} title="Iniciar Sesion" />
         <Text style={styles.sub}>No tenes una cuenta?</Text>
@@ -84,11 +79,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
   },
   container: {
     width: "90%",
-    backgroundColor: "whitesmoke",
+    backgroundColor: "brown",
     gap: 15,
     borderRadius: 10,
     justifyContent: "center",
@@ -100,17 +94,13 @@ const styles = StyleSheet.create({
     // fontFamily: fonts.LobsterRegular,
   },
   sub: {
-    fontSize: 24,
+    fontSize: 20,
+    color: "gold",
     // fontFamily: fonts.JosefinSansBold,
   },
   subLink: {
-    fontSize: 24,
+    fontSize: 20,
     // fontFamily: fonts.JosefinSansBold,
-    color: "brown",
-    borderWidth: 2,
-    borderColor: "brown",
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderRadius: 15,
+    color: "white",
   },
 });

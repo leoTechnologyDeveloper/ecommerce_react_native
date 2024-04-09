@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Pressable } from "react-native";
-import colors from "../utils/globals/colors";
+// import colors from "../utils/globals/colors";
 
 const SubmitButton = ({ title, onPress }) => {
   return (
@@ -14,15 +14,16 @@ export default SubmitButton;
 const styles = StyleSheet.create({
   button: {
     width: "60%",
-    backgroundColor: "brown",
+    backgroundColor: "white",
+    color: "red",
     padding: 10,
     alignItems: "center",
     borderRadius: 10,
-    marginTop: 40,
   },
   text: {
     textAlign: "center",
-    color: "white",
-    fontSize: 24,
+    color: "red",
+    fontSize: 23,
+    fontWeight: "800",
   },
 });

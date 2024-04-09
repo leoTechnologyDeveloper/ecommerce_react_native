@@ -12,14 +12,15 @@ export default AddButton;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "green",
+    backgroundColor: "gold",
     width: "70%",
     paddingVertical: 8,
     margin: 10,
+    borderRadius: 20,
   },
   text: {
-    color: "white",
+    color: "black",
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 20,
   },
 });

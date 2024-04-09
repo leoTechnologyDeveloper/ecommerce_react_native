@@ -4,24 +4,25 @@ import SubmitButton from "../components/SubmitButton";
 import { useState } from "react";
 // import colors from "../utils/globals/colors";
 // import fonts from "../utils/globals/fonts";
-import { useLoginMutation } from "../app/services/auth";
+import { useRegisterMutation } from "../app/services/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/auth/authSlice";
-// import { loginSchema } from "../utils/validations/authSchema";
+import { registerSchema } from "../utils/validations/authSchema";
 
 const Register = ({ navigation }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [triggerLogin] = useLoginMutation();
+  const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
+  const [triggerRegister] = useRegisterMutation();
 
   const onSubmit = async () => {
     try {
-      loginSchema.validateSync({ email, password });
-      const { data } = await triggerLogin({ email, password });
+      registerSchema.validateSync({ email, password, confirmPassword });
+      const { data } = await triggerRegister({ email, password });
       dispatch(
         setUser({
           email: data.email,
@@ -32,7 +33,7 @@ const Register = ({ navigation }) => {
     } catch (error) {
       setErrorEmail("");
       setErrorPassword("");
-
+      setErrorConfirmPassword("");
       switch (error.path) {
         case "email":
           setErrorEmail(error.message);
@@ -40,16 +41,14 @@ const Register = ({ navigation }) => {
         case "password":
           setErrorPassword(error.message);
           break;
+        case "confirmPassword":
+          setErrorConfirmPassword(error.message);
+          break;
         default:
           break;
       }
     }
   };
-
-  // const onSubmit = () => {
-  //   console.log("Mail : ", email);
-  //   console.log("Password : ", password);
-  // };
 
   return (
     <View style={styles.main}>
@@ -70,15 +69,15 @@ const Register = ({ navigation }) => {
         />
         <InputForm
           label="Confirmar Password"
-          value={confirmpassword}
+          value={confirmPassword}
           onChangeText={(t) => setConfirmPassword(t)}
           isSecure={true}
-          error={errorPassword}
+          error={errorConfirmPassword}
         />
         <SubmitButton onPress={onSubmit} title="Registrarme" />
-        <Text style={styles.sub}>Ya tienes una cuenta?</Text>
+        <Text style={styles.sub}>ya tenes una cuenta?</Text>
         <Pressable onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.subLink}>Inici de Sesión</Text>
+          <Text style={styles.subLink}>Incio de sesion</Text>
         </Pressable>
       </View>
     </View>
@@ -92,11 +91,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
   },
   container: {
     width: "90%",
-    backgroundColor: "whitesmoke",
+    backgroundColor: "brown",
     gap: 15,
     borderRadius: 10,
     justifyContent: "center",
@@ -108,17 +106,13 @@ const styles = StyleSheet.create({
     // fontFamily: fonts.LobsterRegular,
   },
   sub: {
-    fontSize: 24,
+    fontSize: 22,
+    color: "gold",
     // fontFamily: fonts.JosefinSansBold,
   },
   subLink: {
-    fontSize: 24,
+    fontSize: 20,
     // fontFamily: fonts.JosefinSansBold,
-    color: "brown",
-    borderWidth: 2,
-    borderColor: "brown",
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderRadius: 15,
+    color: "white",
   },
 });

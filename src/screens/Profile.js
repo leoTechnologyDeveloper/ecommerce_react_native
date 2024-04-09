@@ -14,12 +14,12 @@ const Profile = ({ navigation }) => {
     <View style={styles.container}>
       <Image
         // source={data ? { uri: data.image } : require("../../assets/user.png")}
-        source={require("../../assets/user.png")}
+        source={require("../../assets/profile.jpg")}
         style={styles.image}
         resizeMode="cover"
       />
       {/* <Text style={styles.text}>{locationFormatted?.address}</Text> */}
-      <Text style={styles.text}>"Text Profile"</Text>
+      <Text style={styles.text}>"Tu Perfil"</Text>
       <AddButton
         title={"Agregar Imagen de perfil"}
         onPress={() => navigation.navigate("ImageSelector")}

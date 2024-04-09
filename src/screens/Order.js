@@ -6,14 +6,14 @@ import OrderItem from "../components/OrderItem";
 const Order = () => {
   return (
     <View>
-      <Text>Order</Text>
+      <Text style={styles.title}>Ordenes</Text>
       <FlatList
         style={styles.container}
         data={orders}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <OrderItem order={item} />}
       />
-      <Text>After flat</Text>
+      {/* <Text>After flat</Text> */}
     </View>
   );
 };
@@ -22,7 +22,14 @@ export default Order;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.sea2,
-    padding: 20,
+    backgroundColor: "gold",
+    padding: 40,
+    flexDirection: "row",
+  },
+  title: {
+    fontSize: 35,
+    backgroundColor: "brown",
+    padding: 15,
+    color: "white",
   },
 });

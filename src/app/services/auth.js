@@ -8,14 +8,14 @@ export const authApi = createApi({
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (user) => ({
-        url: "accounts:signUp?key=AIzaSyA2U21ILusl3jVe0oA7x1ejeNv7wAQ47jw",
+        url: "accounts:signUp?key=AIzaSyBda0MXvvahoBIKvqxoXqk6ZVRfjZsdIjo",
         method: "POST",
         body: user,
       }),
     }),
     login: builder.mutation({
       query: (user) => ({
-        url: "accounts:signInWithPassword?key=AIzaSyA2U21ILusl3jVe0oA7x1ejeNv7wAQ47jw",
+        url: "accounts:signInWithPassword?key=AIzaSyBda0MXvvahoBIKvqxoXqk6ZVRfjZsdIjo",
         method: "POST",
         body: user,
       }),
